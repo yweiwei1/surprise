@@ -129,14 +129,14 @@ const blessings = [
 
 // 预定义照片URL（使用示例图片，实际使用时可以替换）
 const photoUrls = [
-    "photos//photo1.jpg",
-     "photos//photo2.jpg",
-      "photos//photo3.jpg",
-       "photos//photo4.jpg",
-        "photos//photo5.jpg",
-         "photos//photo6.jpg",
-          "photos//photo7.jpg",
-           "photos//photo8.jpg",
+"https://i.ibb.co/HDJ2f200/mmexport1764857106585.jpg",
+"https://i.ibb.co/9mCTFS4N/mmexport1764857109920.jpg",
+"https://i.ibb.co/ym9VB57H/mmexport1764857108345.jpg",
+"https://i.ibb.co/wNXykYcD/photo4.jpg",
+"https://i.ibb.co/MxW5n3cs/photo5.jpg",
+"https://i.ibb.co/PsJ40nDF/photo6.jpg",
+"https://i.ibb.co/8LL0yg9m/photo7.jpg",
+"https://i.ibb.co/C3PzW4S3/photo8.jpg"
 ];
 
 // 获取DOM元素
@@ -157,14 +157,14 @@ const surpriseSound = document.getElementById('surpriseSound');
 
 // 爱心形状的坐标（8个点形成爱心）
 const heartCoordinates = [
-    { x: 0.5, y: 0.25 },   // 顶部
-    { x: 0.5, y: 0.85 },  // 右上
-    { x: 0.25, y: 0.15 },   // 右中
-    { x: 0.75, y: 0.15 },   // 底部
-    { x: 0.1, y: 0.35 },   // 左中
-    { x: 0.95, y: 0.35 },  // 左上
-    { x: 0.25, y: 0.65 },   // 中心上
-    { x: 0.75, y: 0.65 }    // 中心下
+    { x: 0.4, y: 0.25 },   // 顶部
+    { x: 0.4, y: 0.85 },  // 右上
+    { x: 0.1, y: 0.1 },   // 右中
+    { x: 0.7, y: 0.1 },   // 底部
+    { x: -0.1, y: 0.38 },   // 左中
+    { x: 0.9, y: 0.38 },  // 左上
+    { x: 0.1, y: 0.65 },   // 中心上
+    { x: 0.7, y: 0.65 }    // 中心下
 ];
 
 // 页面加载完成后初始化
