@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专属惊喜 | 给小马</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 初始弹窗序列 -->
+    <div class="popup-container" id="popupContainer">
+        <div class="popup" id="popup1">叮~</div>
+        <div class="popup" id="popup2">surprise！</div>
+        <div class="popup" id="popup3">这是一份专属小马的小惊喜</div>
+        <div class="popup" id="popup4">来自：小杨</div>
+        <div class="popup" id="popup5">好闺闺</div>
+        <div class="popup" id="popup6">你</div>
+        <div class="popup" id="popup7">准备好了吗？</div>
+    </div>
+    
+    <!-- 开始按钮 -->
+    <div class="start-container" id="startContainer">
+        <button class="start-btn" id="startBtn">
+            <span>开启惊喜吧！</span>
+            <i class="fas fa-gift"></i>
+        </button>
+    </div>
+    
+    <!-- 倒计时 -->
+    <div class="countdown-container" id="countdownContainer">
+        <div class="countdown-number" id="countdown3">3</div>
+        <div class="countdown-number" id="countdown2">2</div>
+        <div class="countdown-number" id="countdown1">1</div>
+    </div>
+    
+    <!-- 惊喜主内容区 -->
+    <div class="main-content" id="mainContent">
+        <div class="background-overlay"></div>
+        
+        <!-- 随机祝福语显示区 -->
+        <div class="blessings-container" id="blessingsContainer"></div>
+        
+        <!-- 照片爱心显示区 -->
+        <div class="photos-container" id="photosContainer"></div>
+        
+        <!-- 日期显示 -->
+        <div class="date-display" id="dateDisplay"></div>
+        
+        <!-- 重新开始按钮 -->
+        <button class="restart-btn" id="restartBtn">
+            <i class="fas fa-redo"></i> 再看一次
+        </button>
+    </div>
+    
+    <!-- 音频元素 -->
+    <audio id="dingSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-magic-sparkles-300.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="countdownSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-simple-countdown-922.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="surpriseSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-happy-birthday-horn-576.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>

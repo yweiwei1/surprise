@@ -1,0 +1,425 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ma Shan Zheng', cursive, sans-serif;
+    background: linear-gradient(135deg, #ffcce6 0%, #ffe6f2 50%, #ffccf2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    color: #d81b60;
+}
+
+/* 弹窗样式 - 每次只显示一个 */
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.popup {
+    position: absolute;
+    padding: 20px 40px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    font-size: 2.5rem;
+    box-shadow: 0 10px 30px rgba(216, 27, 96, 0.3);
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+    transition: all 0.5s ease-out;
+    border: 3px solid #ff80ab;
+    text-align: center;
+    color: #c2185b;
+    max-width: 80%;
+    word-wrap: break-word;
+    min-width: 300px;
+    /* 居中显示 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: all 0.5s ease-out;
+}
+
+.popup.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* 每个弹窗可以有稍微不同的样式 */
+#popup1 { 
+    color: #d81b60;
+    border-color: #d81b60;
+}
+#popup2 { 
+    color: #c2185b;
+    border-color: #c2185b;
+    font-style: italic;
+}
+#popup3 { 
+    color: #ad1457;
+    border-color: #ad1457;
+    font-size: 2.2rem;
+}
+#popup4 { 
+    color: #880e4f;
+    border-color: #880e4f;
+}
+#popup5 { 
+    color: #d81b60;
+    border-color: #d81b60;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+#popup6 { 
+    color: #c2185b;
+    border-color: #c2185b;
+    font-size: 3rem;
+    padding: 30px 50px;
+}
+#popup7 { 
+    color: #ad1457;
+    border-color: #ad1457;
+    font-size: 2.2rem;
+}
+#popup8 { 
+    color: #880e4f;
+    border-color: #880e4f;
+    font-size: 3.5rem;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: translate(-50%, -50%) scale(1); }
+    to { transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .popup {
+        font-size: 1.8rem;
+        padding: 15px 25px;
+        min-width: 250px;
+    }
+    
+    #popup3 {
+        font-size: 1.6rem;
+    }
+    
+    #popup6 {
+        font-size: 2.2rem;
+        padding: 20px 30px;
+    }
+    
+    #popup8 {
+        font-size: 2.5rem;
+    }
+}
+
+/* 开始按钮 */
+.start-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    background-color: rgba(255, 204, 230, 0.8);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s;
+}
+
+.start-container.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.start-btn {
+    background: linear-gradient(135deg, #ff4081, #f50057);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 25px 60px;
+    font-size: 2.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 15px 30px rgba(216, 27, 96, 0.4);
+    transition: all 0.3s;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    transform: scale(1);
+    animation: pulse 2s infinite;
+}
+
+.start-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 20px 40px rgba(216, 27, 96, 0.6);
+}
+
+.start-btn:active {
+    transform: scale(0.95);
+}
+
+.start-btn i {
+    font-size: 2.8rem;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 64, 129, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(255, 64, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 64, 129, 0); }
+}
+
+/* 倒计时 */
+.countdown-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 998;
+    background-color: rgba(255, 204, 230, 0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+}
+
+.countdown-container.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.countdown-number {
+    position: absolute;
+    font-size: 20rem;
+    color: #d81b60;
+    opacity: 0;
+    transform: scale(2);
+    transition: all 0.8s;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.countdown-number.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.countdown-number.hide {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+/* 主内容区 */
+.main-content {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.2) 0%, rgba(255, 204, 230, 0.2) 100%);
+    z-index: -1;
+}
+
+/* 祝福语容器 */
+.blessings-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.blessing {
+    position: absolute;
+    font-size: 1.8rem;
+    color: #c2185b;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: floatUp 5s forwards;
+    max-width: 300px;
+    text-align: center;
+    border: 2px solid #ff80ab;
+    font-family: 'Ma Shan Zheng', cursive;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.5);
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(0.8);
+    }
+}
+
+/* 照片爱心容器 */
+.photos-container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.photo-frame {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border: 5px solid white;
+    transition: all 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.photo-frame.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 日期显示 */
+.date-display {
+    font-size: 3.5rem;
+    color: #d81b60;
+    margin: 40px 0;
+    text-align: center;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px 40px;
+    border-radius: 20px;
+    border: 3px solid #ff80ab;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease 2s;
+}
+
+.date-display.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 重新开始按钮 */
+.restart-btn {
+    background: linear-gradient(135deg, #4fc3f7, #0277bd);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 20px 40px;
+    font-size: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 20px rgba(2, 119, 189, 0.3);
+    transition: all 0.3s;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease 3s;
+}
+
+.restart-btn.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.restart-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(2, 119, 189, 0.4);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .popup {
+        font-size: 1.8rem;
+        padding: 15px 25px;
+    }
+    
+    .start-btn {
+        font-size: 1.8rem;
+        padding: 20px 40px;
+    }
+    
+    .countdown-number {
+        font-size: 12rem;
+    }
+    
+    .photos-container {
+        width: 90vw;
+        height: 90vw;
+    }
+    
+    .photo-frame {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .date-display {
+        font-size: 2.5rem;
+        padding: 15px 25px;
+    }
+    
+    .restart-btn {
+        font-size: 1.5rem;
+        padding: 15px 30px;
+    }
+    
+    .blessing {
+        font-size: 1.4rem;
+        max-width: 200px;
+    }
+}
